@@ -1,10 +1,5 @@
 from typing import List, Optional
-
-
 from pydantic import BaseModel
-
-
-
 
 class ItemBase(BaseModel):
 
@@ -13,12 +8,9 @@ class ItemBase(BaseModel):
     description: Optional[str] = None
 
 
-
-
 class ItemCreate(ItemBase):
 
     pass
-
 
 
 class Item(ItemBase):
@@ -29,24 +21,22 @@ class Item(ItemBase):
         orm_mode = True
 
 
-
 class UserBase(BaseModel):
 
     email: str
 
-
-
-
 class UserCreate(UserBase):
 
     password: str
-
-
 
 class User(UserBase):
     id: int
     is_active: bool
     items: List[Item] = []
 
+    user.items.foreach
+
     class Config:
         orm_mode = True
+
+
